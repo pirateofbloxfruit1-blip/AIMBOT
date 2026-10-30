@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIVALS Aimbot Script</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --container-bg: #161b22;
+            --text-color: #c9d1d9;
+            --accent-color: #0076ff;
+            --accent-hover: #0056b3;
+            --border-color: #30363d;
+            --code-color: #ff7b72;
+            --string-color: #a5d6ff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 650px;
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        p {
+            font-size: 14px;
+            color: #8b949e;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .code-box {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            position: relative;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        pre {
+            margin: 0;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre;
+        }
+
+        code {
+            color: var(--text-color);
+        }
+
+        .keyword { color: var(--code-color); }
+        .string { color: var(--string-color); }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .copy-btn {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 12px rgba(0, 118, 255, 0.2);
+        }
+
+        .copy-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.98);
+        }
+
+        .copy-btn.success {
+            background-color: #2ea44f;
+            box-shadow: 0 4px 12px rgba(46, 164, 79, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <h1>RIVALS Aimbot Script</h1>
+        <p>Copy the loadstring below and paste it into your executor.</p>
+
+        <div class="code-box">
+<pre><code id="scriptCode"><span class="keyword">loadstring</span>(game:<span class="keyword">HttpGet</span>(<span class="string">"https://rawscripts.net/raw/RIVALS-Aimbot-no-banned-yes-sure-102092"</span>))()</code></pre>
+        </div>
+
+        <div class="btn-container">
+            <button class="copy-btn" id="copyBtn">Copy Code</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('copyBtn').addEventListener('click', function() {
+            const codeText = document.getElementById('scriptCode').innerText;
+            
+            navigator.clipboard.writeText(codeText).then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.innerText = 'Copied!';
+                btn.classList.add('success');
+                
+                setTimeout(() => {
+                    btn.innerText = 'Copy Code';
+                    btn.classList.remove('success');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy code: ', err);
+            });
+        });
+    </script>
+
+</body>
+</html>
